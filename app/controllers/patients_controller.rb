@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-  before_action :set_patient,only: [:show,:appointments]
+  before_action :set_patient,only: [:show,:appointments,:new_appointment]
   
   def index
     @patients = Patient.all
@@ -31,7 +31,12 @@ class PatientsController < ApplicationController
     @appointments = @patient.appointments 
   end
 
-
+  def new_appointment
+    @appointment = @patient.appointments.new
+    respond_to do |format|
+      format.html {render '/appointments/new'}
+    end
+  end
 
 
   private

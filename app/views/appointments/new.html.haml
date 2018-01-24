@@ -10,13 +10,13 @@
     %div.col-md-3  
       = label_tag 'select_patient'
     %div.col-md-3  
-      = select_tag 'appointment[patient_id]',options_from_collection_for_select(Patient.all,"id","name")
+      = select_tag 'appointment[patient_id]',options_from_collection_for_select(Patient.all,"id","name",@appointment.patient_id)
   
   %div.row(style="margin: 10px")
     %div.col-md-3  
       = label_tag 'select_physician'
     %div.col-md-3  
-      = select_tag 'appointment[physician_id]',options_from_collection_for_select(Physician.all,"id","name")
+      = select_tag 'appointment[physician_id]',options_from_collection_for_select(Physician.all,"id","name",@appointment.physician_id)
 
 
   %div.row(style="margin: 10px")

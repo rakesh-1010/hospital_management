@@ -1,5 +1,5 @@
 class PhysiciansController < ApplicationController
-  before_action :set_physician,only: [:show,:appointments]
+  before_action :set_physician,only: [:show,:appointments,:new_appointment]
   def new
     @physician = Physician.new
   end
@@ -24,6 +24,13 @@ class PhysiciansController < ApplicationController
 
   def appointments
     @appointments = @physician.appointments 
+  end
+
+  def new_appointment
+    @appointment = @physician.appointments.new
+    respond_to do |format|
+      format.html {render '/appointments/new'}
+    end
   end
 
   private

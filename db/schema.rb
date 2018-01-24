@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123102302) do
+ActiveRecord::Schema.define(version: 20180124105433) do
 
   create_table "appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "physician_id"
     t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "appointment_date"
+    t.datetime "appointment_date", default: "2018-01-24 11:00:01"
   end
 
   create_table "patients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
