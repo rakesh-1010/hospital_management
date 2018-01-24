@@ -1,0 +1,11 @@
+
+%h3 Name: #{@patient.name.capitalize}
+%h4 Mobile Number #{@patient.mobilenumber}
+= link_to appointments_path do
+  Home
+|
+= link_to patient_appointments_path(id: @patient.id) do
+  Show Appointments
+
+
+

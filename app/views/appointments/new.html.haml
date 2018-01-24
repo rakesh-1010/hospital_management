@@ -1,0 +1,25 @@
+%h3(style="margin-left: 20px;") Add appointment
+= form_tag @appointment, method: :post do
+  %div.row(style="margin: 10px")
+    %div.col-md-3
+      = label_tag 'appointment_date_&_time'
+    %div.col-md-3  
+      = datetime_field 'appointment','appointment_date'
+
+  %div.row(style="margin: 10px")
+    %div.col-md-3  
+      = label_tag 'select_patient'
+    %div.col-md-3  
+      = select_tag 'appointment[patient_id]',options_from_collection_for_select(Patient.all,"id","name")
+  
+  %div.row(style="margin: 10px")
+    %div.col-md-3  
+      = label_tag 'select_physician'
+    %div.col-md-3  
+      = select_tag 'appointment[physician_id]',options_from_collection_for_select(Physician.all,"id","name")
+
+
+  %div.row(style="margin: 10px")
+    %div.col-md-3
+      = submit_tag 'Save'
+

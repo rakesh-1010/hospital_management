@@ -1,0 +1,19 @@
+%h3 Listing Patients
+%table.table.table-striped.table-bodered
+  %tr
+    %th
+      Sr No.
+    %th
+      Patient Name
+    %th
+      Mobile Number
+  - @patients.each_with_index do |patient,i| 
+    %tr
+      %td
+        = i+1
+      %td
+        = patient.name
+      %td
+        = patient.mobilenumber
+
+

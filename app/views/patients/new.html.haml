@@ -1,0 +1,18 @@
+%h3(style="margin-left: 20px;") Add Patient
+= form_tag @patient, method: :post do
+  %div.row(style="margin: 10px")
+    %div.col-md-3
+      = label_tag 'name'
+    %div.col-md-3  
+      = text_field_tag 'patient[name]','',class: ''
+
+  %div.row(style="margin: 10px")
+    %div.col-md-3  
+      = label_tag 'mobilenumber'
+    %div.col-md-3  
+      = text_field_tag 'patient[mobilenumber]','',class: ''
+
+  %div.row(style="margin: 10px")
+    %div.col-md-3
+      = submit_tag 'Save'
+

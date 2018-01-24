@@ -1,0 +1,18 @@
+%div.row.btn-group(style="margin: 10px;")
+  = link_to new_appointment_path,class: "btn btn-xs btn-default" do
+    %i.fa.fa-plus
+      Appointment
+  = link_to new_patient_path,class: "btn btn-xs btn-default" do
+    %i.fa.fa-plus
+      Patient
+  = link_to new_physician_path,class: "btn btn-xs btn-default" do
+    %i.fa.fa-plus
+      Physician
+  = link_to patients_path,class: "btn btn-xs btn-default" do
+    View Patient List
+  = link_to physicians_path,class: "btn btn-xs btn-default" do
+    View Physician List
+
+
+= render 'list'
+

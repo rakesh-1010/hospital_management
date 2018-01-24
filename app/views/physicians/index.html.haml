@@ -1,0 +1,19 @@
+%h3 Listing Physicians
+%table.table.table-striped.table-bodered
+  %tr
+    %th
+      Sr No.
+    %th
+      physician Name
+    %th
+      Mobile Number
+  - @physicians.each_with_index do |physician,i| 
+    %tr
+      %td
+        = i+1
+      %td
+        = physician.name
+      %td
+        = physician.medical_license_id
+
+
