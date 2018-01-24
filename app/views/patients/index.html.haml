@@ -1,5 +1,5 @@
 %h3 Listing Patients
-%table.table.table-striped.table-bodered
+%table.table.table-striped.table-bodered(style= "margin-bottom: 20px;")
   %tr
     %th
       Sr No.
@@ -12,8 +12,15 @@
       %td
         = i+1
       %td
-        = patient.name
+        = link_to patient_path(id: patient.id) do
+          #{patient.name.capitalize}
       %td
         = patient.mobilenumber
+
+= link_to appointments_path do
+  Home
+| 
+= link_to new_patient_path do
+  Add New Patient
 
 
