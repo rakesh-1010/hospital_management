@@ -3,21 +3,28 @@
   %div.row(style="margin: 10px")
     %div.col-md-3
       = label_tag 'appointment_date_&_time'
-    %div.col-md-3  
+    %div.col-md-3
       = datetime_field 'appointment','appointment_date'
 
   %div.row(style="margin: 10px")
-    %div.col-md-3  
+    %div.col-md-3
       = label_tag 'select_patient'
-    %div.col-md-3  
-      = select_tag 'appointment[patient_id]',options_from_collection_for_select(Patient.all,"id","name",@appointment.patient_id)
-  
-  %div.row(style="margin: 10px")
-    %div.col-md-3  
-      = label_tag 'select_physician'
-    %div.col-md-3  
-      = select_tag 'appointment[physician_id]',options_from_collection_for_select(Physician.all,"id","name",@appointment.physician_id)
+    %div.col-md-3
+      - if @appointment.patient_id.present?
+        = select_tag 'appointment[patient_id]',options_from_collection_for_select(Patient.all,"id","name",@appointment.patient_id),disabled: true
+        = hidden_field_tag 'appointment[patient_id]',@appointment.patient_id
+      - else
+        = select_tag 'appointment[patient_id]',options_from_collection_for_select(Patient.all,"id","name")
 
+  %div.row(style="margin: 10px")
+    %div.col-md-3
+      = label_tag 'select_physician'
+    %div.col-md-3
+      - if @appointment.physician_id.present?
+        = select_tag 'appointment[physician_id]',options_from_collection_for_select(Physician.all,"id","name",@appointment.physician_id),disabled: true
+        = hidden_field_tag 'appointment[physician_id]',@appointment.physician_id
+      - else
+        = select_tag 'appointment[physician_id]',options_from_collection_for_select(Physician.all,"id","name")
 
   %div.row(style="margin: 10px")
     %div.col-md-3
