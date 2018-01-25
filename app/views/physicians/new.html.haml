@@ -1,3 +1,7 @@
+- if @physician.errors.any?
+  %ul
+    - @physician.errors.full_messages.each do |message|
+      %li(style="color: red;")= message
 %h3(style="margin-left: 20px;") Add Physician
 = form_tag @physician, method: :post do
   %div.row(style="margin: 10px")

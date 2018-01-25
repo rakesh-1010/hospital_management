@@ -6,12 +6,10 @@ class PhysiciansController < ApplicationController
 
   def create
     @physician = Physician.new(physician_params)
-    respond_to do |format|
-      if @physician.save
-        format.html {redirect_to physician_path(@physician)}
-      else
-        format.html {render 'new'}
-      end
+    if @physician.save
+      redirect_to physician_path(@physician)
+    else
+      render 'new'
     end
   end
 
@@ -28,9 +26,7 @@ class PhysiciansController < ApplicationController
 
   def new_appointment
     @appointment = @physician.appointments.new
-    respond_to do |format|
-      format.html {render '/appointments/new'}
-    end
+    render '/appointments/new'
   end
 
   private

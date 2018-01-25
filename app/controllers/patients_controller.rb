@@ -14,13 +14,11 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
-    respond_to do |format|
       if @patient.save
-        format.html {redirect_to patient_path(@patient)}
+        redirect_to patient_path(@patient)
       else
-        format.html {render 'new'}
+        render 'new'
       end
-    end
   end
 
 
@@ -33,9 +31,7 @@ class PatientsController < ApplicationController
 
   def new_appointment
     @appointment = @patient.appointments.new
-    respond_to do |format|
-      format.html {render '/appointments/new'}
-    end
+    render '/appointments/new'
   end
 
 

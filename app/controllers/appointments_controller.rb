@@ -10,12 +10,10 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-    respond_to do |format|
-      if @appointment.save
-        format.html {redirect_to appointment_path(@appointment)}
-      else
-        format.html {render 'new'}
-      end
+    if @appointment.save
+      redirect_to appointment_path(@appointment)
+    else
+      render 'new'
     end
   end
 
