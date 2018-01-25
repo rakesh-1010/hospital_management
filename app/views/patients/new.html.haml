@@ -4,15 +4,15 @@
     %div.col-md-3
       = label_tag 'name'
     %div.col-md-3  
-      = text_field_tag 'patient[name]','',class: ''
+      = text_field_tag 'patient[name]','',class: 'form-control'
 
   %div.row(style="margin: 10px")
     %div.col-md-3  
       = label_tag 'mobilenumber'
     %div.col-md-3  
-      = text_field_tag 'patient[mobilenumber]','',class: ''
+      = text_field_tag 'patient[mobilenumber]','',class: 'form-control'
 
   %div.row(style="margin: 10px")
     %div.col-md-3
-      = submit_tag 'Save'
+      = submit_tag 'Save',class: "btn btn-default"
 

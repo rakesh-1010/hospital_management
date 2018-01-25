@@ -4,15 +4,15 @@
     %div.col-md-3
       = label_tag 'name'
     %div.col-md-3  
-      = text_field_tag 'physician[name]','',class: ''
+      = text_field_tag 'physician[name]','',class: 'form-control'
 
   %div.row(style="margin: 10px")
     %div.col-md-3  
       = label_tag 'medical_license_id'
     %div.col-md-3  
-      = text_field_tag 'physician[medical_license_id]','',class: ''
+      = text_field_tag 'physician[medical_license_id]','',class: 'form-control'
 
   %div.row(style="margin: 10px")
     %div.col-md-3
-      = submit_tag 'Save'
+      = submit_tag 'Save',class: "btn btn-default"
 
