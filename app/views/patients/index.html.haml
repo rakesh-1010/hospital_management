@@ -1,0 +1,26 @@
+%h3 Listing Patients
+%table.table.table-striped.table-bodered(style= "margin-bottom: 20px;")
+  %tr
+    %th
+      Sr No.
+    %th
+      Patient Name
+    %th
+      Mobile Number
+  - @patients.each_with_index do |patient,i| 
+    %tr
+      %td
+        = i+1
+      %td
+        = link_to patient_path(id: patient.id) do
+          #{patient.name.capitalize}
+      %td
+        = patient.mobilenumber
+
+= link_to appointments_path do
+  Home
+| 
+= link_to new_patient_path do
+  Add New Patient
+
+

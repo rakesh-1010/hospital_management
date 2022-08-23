@@ -1,0 +1,22 @@
+- if @physician.errors.any?
+  %ul
+    - @physician.errors.full_messages.each do |message|
+      %li(style="color: red;")= message
+%h3(style="margin-left: 20px;") Add Physician
+= form_tag @physician, method: :post do
+  %div.row(style="margin: 10px")
+    %div.col-md-3
+      = label_tag 'name'
+    %div.col-md-3  
+      = text_field_tag 'physician[name]','',class: 'form-control'
+
+  %div.row(style="margin: 10px")
+    %div.col-md-3  
+      = label_tag 'medical_license_id'
+    %div.col-md-3  
+      = text_field_tag 'physician[medical_license_id]','',class: 'form-control'
+
+  %div.row(style="margin: 10px")
+    %div.col-md-3
+      = submit_tag 'Save',class: "btn btn-default"
+

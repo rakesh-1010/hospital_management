@@ -1,0 +1,10 @@
+%h3 Dr. #{@physician.name}
+%h3 License Id: #{@physician.medical_license_id}
+= link_to appointments_path do
+  Home
+|  
+= link_to physician_appointments_path(id: @physician.id) do
+  Show Appointments
+|
+= link_to new_physicians_appointment_path(id: @physician.id) do
+  Add Appointment

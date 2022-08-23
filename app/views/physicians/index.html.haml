@@ -1,0 +1,27 @@
+%h3 Listing Physicians
+%table.table.table-striped.table-bodered
+  %tr
+    %th
+      Sr No.
+    %th
+      Physician Name
+    %th
+      Mobile Number
+  - @physicians.each_with_index do |physician,i| 
+    %tr
+      %td
+        = i+1
+      %td
+        = link_to physician_path(id: physician.id) do
+          #{physician.name.capitalize}
+      %td
+        = physician.medical_license_id
+
+= link_to appointments_path do
+  Home
+|  
+= link_to new_physician_path do
+  Add New physician
+
+
+
